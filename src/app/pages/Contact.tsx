@@ -23,21 +23,10 @@ export function Contact() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        setIsSubmitting(true);
-
-        // Simula o envio do formulário
-        setTimeout(() => {
-            setIsSubmitting(false);
-            setIsSubmitted(true);
-            setFormData({ name: "", email: "", message: "" });
-
-            // Reseta a mensagem de sucesso após 5 segundos
-            setTimeout(() => {
-                setIsSubmitted(false);
-            }, 5000);
-        }, 1000);
+        const text = `Olá! Meu nome é ${formData.name} \n\n${formData.message}`;
+        const url = `https://wa.me/5581988009404?text=${encodeURIComponent(text)}`;
+        window.open(url, "_blank");
     };
-
     return (
         <div>
             {/* Header */}

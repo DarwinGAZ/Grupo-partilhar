@@ -8,16 +8,15 @@ import { Contact } from "./pages/Contact";
 import { NotFound } from "./pages/NotFound";
 
 export const router = createBrowserRouter([
-  {
-    path: "/",
-    Component: Root,
-    children: [
-      { index: true, Component: Home },
-      { path: "sobre", Component: About },
-      { path: "doacoes", Component: Donations },
-      { path: "loja", Component: Shop },
-      { path: "contato", Component: Contact },
-      { path: "*", Component: NotFound },
-    ],
-  },
+    {
+        path: "/",
+        Component: Root,
+        children: [
+            { index: true, Component: Home },
+            { path: "sobre", Component: About },
+            { path: "doacoes", Component: Donations },
+            { path: "contato", Component: Contact },
+            { path: "*", Component: NotFound },
+        ],
+    },
 ]);

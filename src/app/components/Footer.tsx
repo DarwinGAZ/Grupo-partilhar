@@ -20,10 +20,11 @@ export function Footer() {
                     {/* Logo e Descrição */}
                     <div>
                         <div className="flex items-center gap-2 text-green-600 mb-4">
-                            <Heart className="w-8 h-8" fill="currentColor" />
-                            <span className="text-xl font-semibold">
-                                Grupo Partilhar
-                            </span>
+                            <img
+                                src="/logoPartilhar-SF.png"
+                                className="w-96"
+                                alt=""
+                            />
                         </div>
                         <p className="text-gray-600 text-sm">
                             Transformando vidas e construindo um futuro melhor

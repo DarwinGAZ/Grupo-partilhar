@@ -135,17 +135,13 @@ export function Donations() {
 
                             {/* QR Code placeholder */}
                             <div className="bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl p-4 mb-5 w-44 h-44 flex flex-col items-center justify-center gap-2">
-                                <div className="grid grid-cols-3 gap-1 opacity-20">
-                                    {Array.from({ length: 9 }).map((_, i) => (
-                                        <div
-                                            key={i}
-                                            className={`w-10 h-10 rounded-sm ${[0, 2, 4, 6, 8].includes(i) ? "bg-green-700" : "bg-gray-300"}`}
-                                        />
-                                    ))}
+                                <div>
+                                    <img
+                                        src="/qrcode.jpeg"
+                                        className=""
+                                        alt=""
+                                    />
                                 </div>
-                                <p className="text-xs text-gray-400 font-medium">
-                                    QR Code em breve
-                                </p>
                             </div>
 
                             <a

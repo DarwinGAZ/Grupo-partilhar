@@ -2,46 +2,24 @@ import { Link } from "react-router";
 import { Button } from "../components/ui/button";
 import { Heart, Users, Target, MessageCircle } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
+import { team } from "../data/team";
 
 export function Home() {
-    const team = [
-        {
-            name: "Maria Silva",
-            role: "Diretora",
-            image: "https://images.unsplash.com/photo-1649589244330-09ca58e4fa64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHBvcnRyYWl0JTIwcHJvZmVzc2lvbmFsfGVufDF8fHx8MTc3MzIxOTY4M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-        },
-        {
-            name: "João Santos",
-            role: "Coordenador",
-            image: "https://images.unsplash.com/photo-1554765345-6ad6a5417cde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYW4lMjBwb3J0cmFpdCUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NzMyNDg5OTh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-        },
-        {
-            name: "Ana Costa",
-            role: "Educadora",
-            image: "https://images.unsplash.com/photo-1649589244330-09ca58e4fa64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3b21hbiUyMHBvcnRyYWl0JTIwcHJvZmVzc2lvbmFsfGVufDF8fHx8MTc3MzIxOTY4M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-        },
-        {
-            name: "Carlos Oliveira",
-            role: "Assistente Social",
-            image: "https://images.unsplash.com/photo-1554765345-6ad6a5417cde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYW4lMjBwb3J0cmFpdCUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NzMyNDg5OTh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-        },
-    ];
-
     return (
         <div>
             {/* Hero Section */}
             <section className="relative bg-gray-900 text-white">
                 <div className="absolute inset-0 overflow-hidden">
                     <ImageWithFallback
-                        src="https://images.unsplash.com/photo-1761666507437-9fb5a6ef7b0a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb21tdW5pdHklMjB2b2x1bnRlZXJzJTIwaGVscGluZ3xlbnwxfHx8fDE3NzMyMzA0MjF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                        src="/equipePartilhar.jpeg"
                         alt="Comunidade"
-                        className="w-full h-full object-cover opacity-40"
+                        className="w-full h-full object-cover object-top opacity-40"
                     />
                 </div>
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
                     <div className="max-w-2xl">
                         <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                            Transformando vidas através da solidariedade
+                            Iluminando vidas através da solidariedade
                         </h1>
                         <p className="text-lg md:text-xl mb-8 text-gray-200">
                             Trabalhamos para criar oportunidades e oferecer
@@ -129,6 +107,7 @@ export function Home() {
             {/* Equipe */}
             <section className="py-16 md:py-24 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    {/* Título separado */}
                     <div className="text-center max-w-3xl mx-auto mb-12">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">
                             Nossa Equipe
@@ -139,7 +118,27 @@ export function Home() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"></div>
+                    {/* Grid fora do max-w-3xl */}
+                    <div className="grid grid-cols-4 gap-8">
+                        {team.map((person) => (
+                            <div
+                                key={person.name}
+                                className="flex flex-col items-center"
+                            >
+                                <div className="w-full aspect-square overflow-hidden rounded-lg mb-3">
+                                    <img
+                                        src={person.image}
+                                        className="w-full h-full object-cover"
+                                        alt={person.name}
+                                    />
+                                </div>
+                                <h2 className="font-semibold">{person.name}</h2>
+                                <p className="text-gray-600 text-center">
+                                    {person.role}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
 
@@ -171,7 +170,7 @@ export function Home() {
                         </div>
                         <div className="rounded-lg overflow-hidden shadow-lg">
                             <ImageWithFallback
-                                src="https://images.unsplash.com/photo-1697665387559-253e7a645e96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb25hdGlvbiUyMGhlbHBpbmclMjBoYW5kc3xlbnwxfHx8fDE3NzMyNDk1NDF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                                src="/rodajuda.jpeg"
                                 alt="Doações"
                                 className="w-full h-full object-cover"
                             />

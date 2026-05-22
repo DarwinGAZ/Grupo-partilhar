@@ -1,5 +1,6 @@
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { Heart, Users, Target, Award } from "lucide-react";
+import { actions } from "../data/actions";
 
 export function About() {
     return (
@@ -40,7 +41,7 @@ export function About() {
                         </div>
                         <div className="rounded-lg overflow-hidden shadow-lg">
                             <ImageWithFallback
-                                src="https://images.unsplash.com/photo-1758873269317-51888e824b28?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwbWVldGluZyUyMGRpdmVyc2UlMjBwZW9wbGV8ZW58MXx8fHwxNzczMjQ5NTQwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                                src="/equipePartilhar.jpeg"
                                 alt="Nossa equipe"
                                 className="w-full h-full object-cover"
                             />
@@ -123,12 +124,27 @@ export function About() {
                         </h2>
                     </div>
 
-                    <h1 className="text-2xl text-center md:text-3xl font-bold text-gray-800 mb-8">
-                        Promover o bem-estar pessoal e coletivo através do
-                        atendimento psicológico, identificando necessidades e
-                        proporcionando oportunidades de desenvolvimento através
-                        de uma rede multiprofissional.{" "}
-                    </h1>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {actions.map((action) => (
+                            <div
+                                key={action.title}
+                                className="group rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
+                            >
+                                <div className="aspect-square overflow-hidden">
+                                    <img
+                                        src={action.image}
+                                        alt={action.title}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    />
+                                </div>
+                                <div className="p-4 bg-white">
+                                    <p className="text-gray-700 font-medium leading-snug">
+                                        {action.title}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
         </div>
